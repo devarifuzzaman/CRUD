@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component, Fragment} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import ReadPage from "./pages/ReadPage";
+import CreatePage from "./pages/CreatePage";
+import UpdatePage from "./pages/UpdatePage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+           <Fragment>
+                <BrowserRouter>
+                    <Routes>
+                        <Route  path = "/" element={<ReadPage/>} />
+                        <Route  path = "/create" element={<CreatePage/>} />
+                        <Route  path = "/update" element={<UpdatePage/>} />
+                    </Routes>
+                </BrowserRouter>
+           </Fragment>
+        );
+    }
 }
 
 export default App;
